@@ -1,3 +1,5 @@
+import './input-form.styles.css'
+
 
 const InputForm = ({
     setFormFields,
@@ -36,11 +38,12 @@ const InputForm = ({
 
     return (
         <div>
-            <input placeholder="add" onChange={handleChange} id="name-input" />
+            <input class="form__field" placeholder="add" onChange={handleChange} id="name-input" />
             <div className="buttons">
             <button  class="button-9" role="button" onClick={() => { handleSubmit() }} type="submit">add </button>
             <button  class="button-9" role="button" onClick={sortNames}> sort Names</button>  
             </div>  
+            
         </div>
     )
 }

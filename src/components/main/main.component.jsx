@@ -107,7 +107,10 @@ const Main = ({ label, ...otherProps }) => {
   //            <button onClick={sortNames}> sort Names</button>  
   //            <input placeholder="search" onChange={onSearchChange} />   
   return (
+
+    
     <div className="mainContainer">
+          <h1 class="panel-heading" >User Table</h1>
 
       <SearchBox
         names={names}
@@ -125,14 +128,20 @@ const Main = ({ label, ...otherProps }) => {
       />
 
 
-      <table>
-        <tr>
+
+<div class="container">
+    <div class="panel panel-default">
+
+        <div class="panel-body">
+      <table class="table-latitude">
+        <thead>
           <th>No.</th>
           <th>Name</th>
           <th>Edit/Delete</th>
-        </tr>
+        </thead>
+    
 
-
+      <tbody>
         {filteredNames.map((name, index) =>
           <>
             <tr key={index}>
@@ -158,12 +167,33 @@ const Main = ({ label, ...otherProps }) => {
                 }}>Edit</button>
                 <button  class="button-9" role="button" onClick={() => { removeFromList(name) }}>Delete</button>
               </td>
+              
             </tr>
+          
           </>
+          
         )}
+        </tbody>
       </table>
+      </div>
+      
+      </div>
+      
     </div>
+    <tfoot>
+                    <tr>
+                        <td >
+                          
+                          email: burcusahin123hilal@hotmail.com
+                        </td>
+                    </tr>
+                </tfoot>
+
+    </div>
+    
+ 
   )
+     
 }
 
 export default Main;

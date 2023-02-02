@@ -6,7 +6,6 @@ import './App.css';
 function App() {
   return (
     <div> 
-      <h2>User table</h2>
       
       <FormInput />
      

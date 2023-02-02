@@ -66,13 +66,12 @@ body {
 .table-latitude tbody tr th {
   padding-left: 10px;
   border: 1px solid #F1F1F1;
-}
-.table-latitude tfoot {
+}/*# sourceMappingURL=form-input.styles.css.map */
+
+
+tfoot {
   color: #fab700;
   font-style: italic;
   border-bottom: 2px solid #fab700;
+
 }
-.table-latitude tfoot tr td {
-  padding: 10px;
-  border: 1px solid #F1F1F1;
-}/*# sourceMappingURL=form-input.styles.css.map */

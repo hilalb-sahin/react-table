@@ -8,7 +8,9 @@ body {
 //center table 
 //align table content to center
 
+
 .mainContainer{
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,6 +20,8 @@ body {
     height: 100%;
     padding: 1rem;
     background-color: $background;
+    
+
     
 }
 .center {
@@ -74,16 +78,8 @@ body {
                 border: 1px solid #F1F1F1;
             }
         }
+        
     }
-    tfoot {
-        color: $lfs-yellow;
-        font-style: italic;
-        border-bottom: 2px solid $lfs-yellow;
-        tr {
-            td {
-                padding: 10px;
-                border: 1px solid #F1F1F1;
-            }
-        }
-    }
+
 }
+
