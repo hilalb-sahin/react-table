@@ -36,22 +36,6 @@ const Main = ({ label, ...otherProps }) => {
   }, []);
 
 
-  const onSearchChange = (event) => {
-    const searchFieldString = event.target.value.toLocaleLowerCase();
-    const all_names = [...names];
-    const filteredNames = all_names.filter((name) => {
-      return name.toLocaleLowerCase().includes(searchFieldString);
-    })
-
-    setFilteredNames(filteredNames);
-  };
-
-
-  const sortNames = () => {
-    let sortedArr = [...filteredNames];
-    sortedArr.sort();
-    setFilteredNames(sortedArr);
-  }
 
 
   //create new list without the item
@@ -64,11 +48,6 @@ const Main = ({ label, ...otherProps }) => {
 
   }
 
-  const handleChange = (event) => {
-    event.preventDefault();
-    const { name, value } = event.target;
-    setCurrentName(value);
-  }
 
   // to do : create new array instead of pushing 
   const handleSubmit = () => {
@@ -108,9 +87,9 @@ const Main = ({ label, ...otherProps }) => {
   //            <input placeholder="search" onChange={onSearchChange} />   
   return (
 
-    
+
     <div className="mainContainer">
-          <h1 class="panel-heading" >User Table</h1>
+      <h1 className="panel-heading" >User Table</h1>
 
       <SearchBox
         names={names}
@@ -129,71 +108,64 @@ const Main = ({ label, ...otherProps }) => {
 
 
 
-<div class="container">
-    <div class="panel panel-default">
+      <div className="container">
+        <div className="panel panel-default">
 
-        <div class="panel-body">
-      <table class="table-latitude">
-        <thead>
-          <th>No.</th>
-          <th>Name</th>
-          <th>Edit/Delete</th>
-        </thead>
-    
+          <div className="panel-body">
+            <table className="table-latitude">
+              <thead>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Edit/Delete</th>
+              </thead>
 
-      <tbody>
-        {filteredNames.map((name, index) =>
-          <>
-            <tr key={index}>
-              <td>{index}</td>
 
-              {index == currentIndex && isEditing ? (
-                <td>
-                  <input onChange={(event, index) => inputValueGetter(event, index)} id={index} placeholder={name} />
-                  <button class="button-14" role="button"   onClick={toggleIsEditing}>Stop editing</button>
-                  <button class="button-14" role="button" onClick={() => { setUpdatedNames() }}>Save</button>
-                  <td className='edit' id={index}>{inputValue} </td>
-                </td>
-              ) : (
-                <td className='edit' id={index}>{name}</td>
-              )
-              }
-              <td>
-                <button  class="button-9" role="button"  id={index} onClick={(e) => {
+              <tbody>
+                {filteredNames.map((name, index) =>
+                  <>
+                    <tr key={index}>
+                      <td>{index}</td>
 
-                  setCurrentIndex(e.currentTarget.id);
-                  isEditing ? setIsEditing(false) : setIsEditing(true);
-
-                }}>Edit</button>
-                <button  class="button-9" role="button" onClick={() => { removeFromList(name) }}>Delete</button>
-              </td>
-              
-            </tr>
-          
-          </>
-          
-        )}
-        </tbody>
-      </table>
-      </div>
-      
-      </div>
-      
-    </div>
-    <tfoot>
-                    <tr>
-                        <td >
-                          
-                          email: burcusahin123hilal@hotmail.com
+                      {index == currentIndex && isEditing ? (
+                        <td>
+                          <input onChange={(event, index) => inputValueGetter(event, index)} id={index} placeholder={name} />
+                          <button className="button-14" role="button" onClick={toggleIsEditing}>Stop editing</button>
+                          <button className="button-14" role="button" onClick={() => { setUpdatedNames() }}>Save</button>
+                          <td className='edit' id={index}>{inputValue} </td>
                         </td>
+                      ) : (
+                        <td className='edit' id={index}>{name}</td>
+                      )
+                      }
+                      <td>
+                        <button className="button-9" role="button" id={index} onClick={(e) => {
+
+                          setCurrentIndex(e.currentTarget.id);
+                          isEditing ? setIsEditing(false) : setIsEditing(true);
+
+                        }}>Edit</button>
+                        <button className="button-9" role="button" onClick={() => { removeFromList(name) }}>Delete</button>
+                      </td>
+
                     </tr>
-                </tfoot>
+
+                  </>
+
+                )}
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+
 
     </div>
-    
- 
+
+
   )
-     
+
 }
 
 export default Main;
