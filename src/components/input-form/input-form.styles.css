@@ -1,0 +1,13 @@
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.buttons {
+  justify-content: center;
+  align-items: center;
+  margin: 4px;
+}/*# sourceMappingURL=input-form.styles.css.map */

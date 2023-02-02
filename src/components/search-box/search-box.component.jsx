@@ -1,17 +1,28 @@
-import  React,{ Component } from "react";
 
-class SearchBox extends Component{
 
-  render(){
-    return(
-        <input 
-        //now you can target search-box 
-            className = {`search-box ${this.props.className}`}
-            type = 'search' 
-            placeholder= {this.props.placeholder} 
-            onChange = {this.props.onChangeHandler}/>
-        )
+const SearchBox =(
+    {
+        names,
+        setFilteredNames,
+
     }
+) =>{
+
+    const onSearchChange= (event)=>{
+        const searchFieldString = event.target.value.toLocaleLowerCase();
+        const all_names = [...names];
+        const filteredNames = all_names.filter((name)=> {
+            return name.toLocaleLowerCase().includes(searchFieldString);
+        })
+
+        setFilteredNames(filteredNames);    
+      };
+
+    return (
+        <div className="search-box">
+            <input placeholder="search" onChange={onSearchChange} /> 
+        </div>
+    )
 }
 
-export default SearchBox;
+export default SearchBox
